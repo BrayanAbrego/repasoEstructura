@@ -1,0 +1,32 @@
+int main() {
+    int opcion;
+
+    do {
+        cout << "\n--- MENU ---\n";
+        cout << "1. Agregar cliente\n";
+        cout << "2. Atender cliente\n";
+        cout << "3. Deshacer accion\n";
+        cout << "0. Salir\n";
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch(opcion) {
+            case 1:
+                clientes.push("Cliente nuevo");
+                guardarOperacion("Agregar cliente");
+                break;
+
+            case 2:
+                atender();
+                guardarOperacion("Atender cliente");
+                break;
+
+            case 3:
+                deshacer();
+                break;
+        }
+
+    } while(opcion != 0);
+
+    return 0;
+}
