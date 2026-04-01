@@ -1,0 +1,14 @@
+stack<string> historial;
+//guardar acción
+void guardarOperacion(string op) {
+    if (historial.size() == 10)
+        historial.pop(); // elimina la más antigua
+    historial.push(op);
+}
+//deshacer 
+void deshacer() {
+    if (!historial.empty()) {
+        cout << "Deshaciendo: " << historial.top() << endl;
+        historial.pop();
+    }
+}
