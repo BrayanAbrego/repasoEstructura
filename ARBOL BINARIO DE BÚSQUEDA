@@ -1,0 +1,36 @@
+//nodo del arbol 
+struct NodoArbol {
+    Producto data;
+    NodoArbol* izquierda;
+    NodoArbol* derecha;
+};
+//insertar
+NodoArbol* insertar(NodoArbol* raiz, Producto p) {
+    if (raiz == NULL)
+        return new NodoArbol{p, NULL, NULL};
+
+    if (p.codigo < raiz->data.codigo)
+        raiz->izquierda = insertar(raiz->izquierda, p);
+    else
+        raiz->derecha = insertar(raiz->derecha, p);
+
+    return raiz;
+}
+//Buscar
+NodoArbol* buscarArbol(NodoArbol* raiz, int codigo) {
+    if (raiz == NULL || raiz->data.codigo == codigo)
+        return raiz;
+
+    if (codigo < raiz->data.codigo)
+        return buscarArbol(raiz->izquierda, codigo);
+    else
+        return buscarArbol(raiz->derecha, codigo);
+}
+//recorrido inorden
+void inorden(NodoArbol* raiz) {
+    if (raiz != NULL) {
+        inorden(raiz->izquierda);
+        cout << raiz->data.nombre << endl;
+        inorden(raiz->derecha);
+    }
+}
