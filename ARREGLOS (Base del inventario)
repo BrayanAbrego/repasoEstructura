@@ -1,0 +1,20 @@
+//estructura del producto 
+struct Producto {
+    string nombre;
+    int codigo;
+    int cantidad;
+    float precio;
+};
+//arreglo 
+Producto inventario[100];
+int total = 0;
+//Función para ordenar
+void ordenarPorNombre() {
+    for (int i = 0; i < total - 1; i++) {
+        for (int j = 0; j < total - i - 1; j++) {
+            if (inventario[j].nombre > inventario[j + 1].nombre) {
+                swap(inventario[j], inventario[j + 1]);
+            }
+        }
+    }
+}
