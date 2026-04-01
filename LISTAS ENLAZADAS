@@ -1,0 +1,38 @@
+struct Nodo {
+    Producto data;
+    Nodo* siguiente;
+};
+//agregar producto 
+void agregar(Nodo*& cabeza, Producto p) {
+    Nodo* nuevo = new Nodo{p, NULL};
+    nuevo->siguiente = cabeza;
+    cabeza = nuevo;
+}
+//buscar por codigo 
+Nodo* buscar(Nodo* cabeza, int codigo) {
+    while (cabeza != NULL) {
+        if (cabeza->data.codigo == codigo)
+            return cabeza;
+        cabeza = cabeza->siguiente;
+    }
+    return NULL;
+}
+//Eliminar 
+void eliminar(Nodo*& cabeza, int codigo) {
+    Nodo* actual = cabeza;
+    Nodo* anterior = NULL;
+
+    while (actual != NULL) {
+        if (actual->data.codigo == codigo) {
+            if (anterior == NULL)
+                cabeza = actual->siguiente;
+            else
+                anterior->siguiente = actual->siguiente;
+
+            delete actual;
+            return;
+        }
+        anterior = actual;
+        actual = actual->siguiente;
+    }
+}
