@@ -1,0 +1,11 @@
+//estructura
+queue<string> clientes;
+//agregar clientes 
+clientes.push("Cliente 1");
+//atender clientes 
+void atender() {
+    if (!clientes.empty()) {
+        cout << "Atendiendo: " << clientes.front() << endl;
+        clientes.pop();
+    }
+}
