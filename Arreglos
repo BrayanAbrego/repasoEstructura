@@ -1,0 +1,6 @@
+struct Producto {
+    string nombre;
+    int codigo;
+    int cantidad;
+    float precio;
+};
